@@ -1,6 +1,8 @@
 # Autogen with Chroma DB
 
-AutoGen is an open-source framework that enables the development of conversational AI applications using multiple agents.
+>AutoGen is an open-source framework that enables the development of conversational AI applications using multiple agents.
+
+>Chroma DB is an open-source vector database for storing and retrieving vector embeddings.
 
 ### Create virtual python environment
 - `virtualenv -p python3.11 env_name`
@@ -52,3 +54,4 @@ Let me know if you need any part of the summary explained further or have additi
 ---
 ## Links
 - [Getting started with Chroma DB](https://docs.trychroma.com/getting-started)
+- [AutoGen: Enable Next-Gen Large Language Model Applications](https://microsoft.github.io/autogen/)
