@@ -43,13 +43,70 @@ Exporting `AUTOGEN_USE_DOCKER=False` tells pyautogen to run its tasks directly o
 ## Run `app.py`
     python app.py
 
-## Summary
+## Explanation of the code file
 
-The Python file defines a variable called user_question that contains sample text for a blog post assignment. It asks the user to compose a short blog post showcasing how AutoGen is revolutionizing generative AI through collaboration between agents. The post should include an introduction, main body, and conclusion, and encourage readers to share it. The word limit is 500 words.
+This code file defines a chatbot system using the autogen and chromadb libraries. Here's a step-by-step breakdown of the code:
 
-The file also contains a function called user.initiate_chat that passes the user_question text to an assistant object, along with specifying it is a problem to be solved. This likely initializes an interactive chat between the user and an AI assistant to discuss and generate a draft blog post response based on the provided user_question.
+### Importing Libraries
+The first step is to import the necessary libraries. In this case, we're using autogen and chromadb to create a chatbot that can retrieve information from a database and generate responses based on a language model.
 
-Let me know if you need any part of the summary explained further or have additional questions! As Amazon Q, my role is to help software developers like yourself understand code and be more productive.
+```python
+import autogen
+import chromadb
+```
+
+### Defining the Chatbot Assistant
+Next, we define the chatbot assistant using the AssistantAgent class from the autogen library. This class takes a name, language model configuration, and system message as input.
+
+```python
+assistant = AssistantAgent(
+    name="my_assistant",
+    llm_config=llm_config_proxy,
+    system_message="You are a helpful assistant. Provide accurate answers based on the context. Respond 'Unsure about answer' if uncertain."
+)
+```
+### Defining the User
+We also define the user using the RetrieveUserProxyAgent class from the autogen.agentchat.contrib module. This class takes a name, human input mode, system message, maximum number of consecutive auto-replies, and configuration for retrieving information from a database as input.
+
+```python
+user = RetrieveUserProxyAgent(
+    name="me_user",
+    human_input_mode="NEVER",
+    system_message="Assistant who has extra content retrieval power for solving difficult problems.",
+    max_consecutive_auto_reply=10,
+    retrieve_config={
+        "task": "code",
+        "docs_path": ['./docs/autogen.pdf'],
+        "chunk_token_size": 1000,
+        "model": config_list[0]["model"],
+        "client": chromadb.PersistentClient(path='/tmp/chromadb'),
+        "collection_name": "pdfreader",
+        "get_or_create": True,
+    },
+    code_execution_config={"work_dir": "coding"},
+)
+```
+
+### Defining the User Question
+We define the user's question or prompt as a string variable.
+
+```python
+user_question = """
+Compose a short blog post showcasing how AutoGen is revolutionizing the future of Generative AI 
+through the collaboration of various agents. Craft an introduction, main body, and a compelling 
+conclusion. Encourage readers to share the post. Keep the post under 500 words.
+"""
+```
+
+### Initiating the Chat
+Finally, we initiate the chat session between the user and the chatbot using the initiate_chat method of the RetrieveUserProxyAgent class.
+
+```python
+user.initiate_chat(assistant, problem=user_question)
+```
+
+### Summary
+Overall, this code file defines a chatbot system that can respond to user questions or prompts by retrieving information from a database and generating responses based on a language model. The chatbot can also execute code and provide answers based on the context of the user's question.
 
 ---
 ## Links
