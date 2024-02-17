@@ -1,4 +1,4 @@
-# Autogen with Chroma DB
+# Autogen with Chroma DB <img src="https://docs.trychroma.com/img/chroma.svg"  width="10%" />
 
 >AutoGen is an open-source framework that enables the development of conversational AI applications using multiple agents.
 
@@ -110,5 +110,6 @@ Overall, this code file defines a chatbot system that can respond to user questi
 
 ---
 ## Links
+
 - [Getting started with Chroma DB](https://docs.trychroma.com/getting-started)
 - [AutoGen: Enable Next-Gen Large Language Model Applications](https://microsoft.github.io/autogen/)
