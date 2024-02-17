@@ -11,6 +11,8 @@ AutoGen Studio is like a Lego set for AI agents. It lets you build teams of AI h
 ## Set OpenAI API Key as an environment variable
     export OPENAI_API_KEY=XXXXXXXXXXX
 
+The PowerShell command looks like this `$Env:OPENAI_API_KEY="XXXXXXXXXXX"`
+
 ## Install AutoGen Studio
     pip install autogenstudio
 
@@ -40,3 +42,22 @@ AutoGen Studio is like a Lego set for AI agents. It lets you build teams of AI h
 - **Python API**: For more advanced users, a programmatic API allows deeper control over agent creation and workflow management.
 
 Overall, these components work together to provide a user-friendly platform for building and experimenting with multi-agent AI systems, even without extensive coding knowledge.
+
+
+---
+## Links
+
+### X-Force IDE
+>X-Force IDE is a low code agent as a service UI framework that lets you to create agent based workforces from drag and drop like user interface. 
+- [X-Force IDE](https://x-force.notion.site/Introduction-to-X-Force-IDE-b92c434802de4df6a58c83fd5d292c33)
+
+### LM Studio
+>This LM Studio is a free, open-source application that allows you to run large language models (LLMs) locally on your own computer. 
+- [LM Studio](https://lmstudio.ai/)
+
+### LiteLLM
+LiteLLM is an open-source library that makes it easier to use various large language models (LLMs) like GPT-3, Jurassic-1 Jumbo, and Bard. You can call all LLM APIs using the OpenAI format.
+
+>Call 100+ LLMs using the same Input/Output Format
+
+- [LiteLLM - Getting Started](https://docs.litellm.ai/)
